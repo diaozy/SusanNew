@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/splash/splash",
+    "pages/comment/comment",
+    "pages/detail/detail",
+    "pages/setting/setting"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#019DD6",
+    "navigationBarTitleText": "Susan英语学堂",
+    "navigationBarTextStyle": "white"
+  }
+}

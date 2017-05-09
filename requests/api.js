@@ -21,7 +21,8 @@ function getLatestNews() {
  * @returns {string}
  */
 function getNewsDetail(newsId) {
-    return API_NEWS + '/' + newsId;
+/**    return API_NEWS + '/' + newsId;**/
+       return API_BASE_N+'/detail';
 }
 
 /**

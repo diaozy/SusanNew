@@ -1,5 +1,6 @@
 var requests = require('../../requests/request.js');
 var utils = require('../../utils/util.js');
+var WxParse = require('../../wxParse/wxParse.js');
 
 Page({
   data: {

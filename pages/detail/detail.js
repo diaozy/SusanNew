@@ -12,8 +12,9 @@ Page({
     extraInfo: {},
     modalMsgHidden: true,
     pageShow: 'none',
-    isCollect: false//是否被收藏
-  },
+    isCollect: false,//是否被收藏
+    test:'dddddddddddddd',
+    },
 
   //获取列表残过来的参数 id：日报id， theme：是否是主题日报内容（因为主题日报的内容有些需要单独解析）
   onLoad: function (options) {
@@ -27,6 +28,25 @@ Page({
       }
     }
     this.setData({ id: id, isTheme: isTheme });
+
+
+    var article;
+    var that = this;
+    var _this = this;
+    requests.getNewsDetail(2, (data) => {
+      article =  data.body ;
+      _this.setDate({ test: data.body });
+    }, null, () => {
+      that.setData({ loading: false });
+    });
+
+
+    WxParse.wxParse('article', 'html', article, that, 5);
+
+
+
+    
+
   },
 
   //加载日报数据
@@ -100,7 +120,8 @@ function loadData() {
   var isTheme = this.data.isTheme;
   //获取日报详情内容
   _this.setData({ loading: true });
-  requests.getNewsDetail(id, (data) => {
+
+  requests.getNewsDetail(1, (data) => {
     data['image'] = utils.fixImgPrefix(data['image']);
     data.body = utils.parseStory(data.body, isTheme);
     _this.setData({ news: data, pageShow: 'block' });
@@ -108,6 +129,7 @@ function loadData() {
   }, null, () => {
     _this.setData({ loading: false });
   });
+
 
   //请求日报额外信息（主要是评论数和推荐人数）
   requests.getStoryExtraInfo(id, (data) => {

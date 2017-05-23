@@ -22,7 +22,7 @@ function getLatestNews() {
  */
 function getNewsDetail(newsId) {
 /**    return API_NEWS + '/' + newsId;**/
-       return API_BASE_N+'/detail';
+       return API_BASE_N+'/detail/'+newsId;
 }
 
 /**
